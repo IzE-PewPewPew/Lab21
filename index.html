@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab21 Calculator</title>
+  </head>
+  <body>
+    <form action="">
+      <input id="nu1" type="text" placeholder="Enter first number" /> <br />
+      <input id="nu2" type="text" placeholder="Enter second number" /> <br />
+
+      <button id="sum" type="button">+</button>
+      <button id="subtact" type="button">-</button>
+      <button id="multiple" type="button">*</button>
+      <button id="divide" type="button">/</button> <br />
+      <span id="result"></span> <br />
+    </form>
+
+    <script>
+      const number = document.getElementById("nu1");
+      const number2 = document.getElementById("nu2");
+      const result = document.getElementById("result");
+
+      const calculate = (operation) => {
+        const value1 = Number(number.value);
+        const value2 = Number(number2.value);
+        let finalResult;
+        switch (operation) {
+          case "+":
+            finalResult = value1 + value2;
+            break;
+          case "-":
+            finalResult = value1 - value2;
+            break;
+          case "*":
+            finalResult = value1 * value2;
+            break;
+          case "/":
+            finalResult = value1 / value2;
+            break;
+          default:
+            alert("Not number");
+            return;
+        }
+
+        result.textContent = `Result: ${finalResult}`;
+      };
+      document.getElementById("sum").addEventListener("click", () => calculate("+"));
+      document.getElementById("subtact").addEventListener("click", () => calculate("-"));
+      document.getElementById("multiple").addEventListener("click", () => calculate("*"));
+      document.getElementById("divide").addEventListener("click", () => calculate("/"));
+    </script>
+  </body>
+</html>
